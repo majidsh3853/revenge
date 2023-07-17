@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(130, 162, 214);
+}
+.tests{
+    width: 100%;
+    height: 100vh;
+    background: rgb(198, 220, 224);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+#q1 {
+    margin: 0 auto;
+    
+}
+
+#answers img{
+  margin: 0 10px;
+}
