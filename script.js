@@ -26,6 +26,7 @@
 
 // تابع برای ایجاد فرم و عناصر آن به صورت پویا
 function createForm() {
+    
     const form = document.createElement('form');
     form.setAttribute('id', 'myForm');
   
@@ -41,7 +42,9 @@ function createForm() {
     form.appendChild(nameInput);
   
     const lineBreak = document.createElement('br');
+    
     form.appendChild(lineBreak);
+   
   
     const ageLabel = document.createElement('label');
     ageLabel.setAttribute('for', 'age');
