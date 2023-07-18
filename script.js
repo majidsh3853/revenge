@@ -1,28 +1,3 @@
-// let body = document.querySelector("body")
-
-// // let load = addEventListener("load", temp1())
-
-// function temp1 (){
-//    return `<div class="tests" id="test1">
-//         <div id="q1">
-//             <img  src="Images/1/test1.png" alt="">
-//         </div>
-//         <div id="answers">
-//             <img src="Images/1/1-1.png" alt="">
-//             <img src="Images/1/1-2.png" alt="">
-//             <img src="Images/1/1-3.png" alt="">
-//             <img src="Images/1/1-4.png" alt="">
-//             <img src="Images/1/1-5.png" alt="">
-//             <img src="Images/1/1-6.png" alt="">
-//         </div>
-//     </div>`
-// }
-
-// body.insertAdjacentHTML('afterbegin', temp1() );
-
-// console.log(body);
-
-
 
 // تابع برای ایجاد فرم و عناصر آن به صورت پویا
 function createForm() {
@@ -98,3 +73,107 @@ function createForm() {
   
   // ساخت فرم هنگام اجرای اسکریپت
   createForm();
+
+  // ........................................................................
+
+// 1. a template for diffrent questions.................
+const body = document.querySelector("body");
+
+function template() {
+  return `<div id="container">
+        <div id="question"></div>
+        <div id="choices"></div>
+    </div>`;
+}
+// adding it to html
+// body.insertAdjacentHTML("afterbegin", template());
+
+// 2. an Array..........................................
+
+const tests = [
+  {
+    question: "Images/1/test1.png",
+    choices: [
+      "Images/1/1-1.png",
+      "Images/1/1-2.png",
+      "Images/1/1-3.png",
+      "Images/1/1-4.png",
+      "Images/1/1-5.png",
+      "Images/1/1-6.png",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Images/1/test2.png",
+    choices: [
+      "Images/2/2-1.png",
+      "Images/2/2-2.png",
+      "Images/2/2-3.png",
+      "Images/2/2-4.png",
+      "Images/2/2-5.png",
+      "Images/2/2-6.png",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Images/1/test1.png",
+    choices: [
+      "Images/3/3-1.png",
+      "Images/3/3-2.png",
+      "Images/3/3-3.png",
+      "Images/3/3-4.png",
+      "Images/3/3-5.png",
+      "Images/3/3-6.png",
+    ],
+    answer: 0,
+  },
+];
+
+//  3. we start form 0..................................( 3 for Amirhosein)****
+let test = 0;
+let score = 0;
+
+// 4. loading the test with its question & choices......
+
+function loadQuestion() {
+  // variables......
+  const questionDiv = document.querySelector("#question");
+  const choicesDiv = document.querySelector("#choices");
+
+  //   for question................................
+  // the fist index of tests.......
+  const currentTest = tests[test];
+
+  //   create an img for the question........
+  const QuestionImg = document.createElement("img");
+
+  //   we select the src in the array for img src
+  QuestionImg.src = currentTest.question;
+
+  // add the question in html
+  questionDiv.appendChild(QuestionImg);
+
+  //   for choices................................
+  currentTest.choices.forEach((choice, index)=>{
+      //  create & add the choices in html
+    const answerImg = document.createElement("img");
+    answerImg.src = choice;
+    choicesDiv.appendChild(answerImg);
+
+    // onclick
+    // answerImg.addEventListener("click", () => {
+    //     checkAnswer(index);
+    //   });
+  });
+
+};
+
+
+// ( 5 & 6 for Amirhosein)****
+
+// 5. checking the answer...............................
+// function checkAnswer() {
+    
+// }
+
+// 6. showing the result................................
