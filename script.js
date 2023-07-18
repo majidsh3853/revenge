@@ -60,6 +60,7 @@ function createForm() {
     const submitButton = document.createElement('input');
     submitButton.setAttribute('type', 'submit');
     submitButton.setAttribute('value', 'Submit');
+    submitButton.setAttribute('id', 'submitButton');
     form.appendChild(submitButton);
   
     document.body.appendChild(form);
