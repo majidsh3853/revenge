@@ -1,7 +1,7 @@
 
 // تابع برای ایجاد فرم و عناصر آن به صورت پویا
 function createForm() {
-
+    
     const form = document.createElement('form');
     form.setAttribute('id', 'myForm');
   
@@ -35,11 +35,12 @@ function createForm() {
     const submitButton = document.createElement('input');
     submitButton.setAttribute('type', 'submit');
     submitButton.setAttribute('value', 'Submit');
+    submitButton.setAttribute('id', 'submitButton');
     form.appendChild(submitButton);
   
     document.body.appendChild(form);
   
-    // اضافه کردن یک رویداد برای کنترل ارسال فرم
+    // اضافه کردن یک گوش‌گیری رویداد برای کنترل ارسال فرم
     form.addEventListener('submit', handleSubmit);
   }
   
