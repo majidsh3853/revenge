@@ -30,6 +30,8 @@ function createForm() {
     ageInput.setAttribute('type', 'number');
     ageInput.setAttribute('id', 'age');
     ageInput.setAttribute('required', 'true');
+    ageInput.setAttribute('max', '100');
+    ageInput.setAttribute('min', '7');
     form.appendChild(ageInput);
   
     const submitButton = document.createElement('input');
