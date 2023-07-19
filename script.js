@@ -1,78 +1,78 @@
 // تابع برای ایجاد فرم و عناصر آن به صورت پویا
-function createForm() {
-  const form = document.createElement("form");
-  form.setAttribute("id", "myForm");
+// function createForm() {
+//   const form = document.createElement("form");
+//   form.setAttribute("id", "myForm");
 
-  const nameLabel = document.createElement("label");
-  nameLabel.setAttribute("for", "name");
-  nameLabel.textContent = "Name:";
-  form.appendChild(nameLabel);
+//   const nameLabel = document.createElement("label");
+//   nameLabel.setAttribute("for", "name");
+//   nameLabel.textContent = "Name:";
+//   form.appendChild(nameLabel);
 
-  const nameInput = document.createElement("input");
-  nameInput.setAttribute("type", "text");
-  nameInput.setAttribute("id", "name");
-  nameInput.setAttribute("required", "true");
-  form.appendChild(nameInput);
+//   const nameInput = document.createElement("input");
+//   nameInput.setAttribute("type", "text");
+//   nameInput.setAttribute("id", "name");
+//   nameInput.setAttribute("required", "true");
+//   form.appendChild(nameInput);
 
-  const lineBreak = document.createElement("br");
+//   const lineBreak = document.createElement("br");
 
-  form.appendChild(lineBreak);
+//   form.appendChild(lineBreak);
 
-  const ageLabel = document.createElement("label");
-  ageLabel.setAttribute("for", "age");
-  ageLabel.textContent = "Age:";
-  form.appendChild(ageLabel);
+//   const ageLabel = document.createElement("label");
+//   ageLabel.setAttribute("for", "age");
+//   ageLabel.textContent = "Age:";
+//   form.appendChild(ageLabel);
 
-  const ageInput = document.createElement("input");
-  ageInput.setAttribute("type", "number");
-  ageInput.setAttribute("id", "age");
-  ageInput.setAttribute("required", "true");
-  ageInput.setAttribute("max", "100");
-  ageInput.setAttribute("min", "7");
-  form.appendChild(ageInput);
+//   const ageInput = document.createElement("input");
+//   ageInput.setAttribute("type", "number");
+//   ageInput.setAttribute("id", "age");
+//   ageInput.setAttribute("required", "true");
+//   ageInput.setAttribute("max", "100");
+//   ageInput.setAttribute("min", "7");
+//   form.appendChild(ageInput);
 
-  const submitButton = document.createElement("input");
-  submitButton.setAttribute("type", "submit");
-  submitButton.setAttribute("value", "Submit");
-  submitButton.setAttribute("id", "submitButton");
-  form.appendChild(submitButton);
+//   const submitButton = document.createElement("input");
+//   submitButton.setAttribute("type", "submit");
+//   submitButton.setAttribute("value", "Submit");
+//   submitButton.setAttribute("id", "submitButton");
+//   form.appendChild(submitButton);
 
-  document.body.appendChild(form);
+//   document.body.appendChild(form);
 
-  // اضافه کردن یک گوش‌گیری رویداد برای کنترل ارسال فرم
-  form.addEventListener("submit", handleSubmit);
-}
+//   // اضافه کردن یک گوش‌گیری رویداد برای کنترل ارسال فرم
+//   form.addEventListener("submit", handleSubmit);
+// }
 
-// تابع برای کنترل ارسال فرم
-function handleSubmit(event) {
-  event.preventDefault(); // جلوگیری از ارسال فرم برای جلوگیری از بازنشانی صفحه
-  const name = document.getElementById("name").value;
-  const age = document.getElementById("age").value;
+// // تابع برای کنترل ارسال فرم
+// function handleSubmit(event) {
+//   event.preventDefault(); // جلوگیری از ارسال فرم برای جلوگیری از بازنشانی صفحه
+//   const name = document.getElementById("name").value;
+//   const age = document.getElementById("age").value;
 
-  if (name && age) {
-    // فراخوانی توابع برای کنترل ورودی‌های نام و سن
-    saveNameToLocalStorage(name);
-    saveAgeToLocalStorage(age);
+//   if (name && age) {
+//     // فراخوانی توابع برای کنترل ورودی‌های نام و سن
+//     saveNameToLocalStorage(name);
+//     saveAgeToLocalStorage(age);
 
-    alert("اطلاعات با موفقیت ذخیره شد!");
-    // می‌توانید از اینجا منطق دیگری را اضافه کنید، مثلاً هدایت به صفحه دیگر.
-  } else {
-    alert("لطفاً همه‌ی فیلدها را پر کنید.");
-  }
-}
+//     alert("اطلاعات با موفقیت ذخیره شد!");
+//     // می‌توانید از اینجا منطق دیگری را اضافه کنید، مثلاً هدایت به صفحه دیگر.
+//   } else {
+//     alert("لطفاً همه‌ی فیلدها را پر کنید.");
+//   }
+// }
 
-// تابع برای ذخیره‌سازی نام در لوکال استوریج
-function saveNameToLocalStorage(name) {
-  localStorage.setItem("name", name);
-}
+// // تابع برای ذخیره‌سازی نام در لوکال استوریج
+// function saveNameToLocalStorage(name) {
+//   localStorage.setItem("name", name);
+// }
 
-// تابع برای ذخیره‌سازی سن در لوکال استوریج
-function saveAgeToLocalStorage(age) {
-  localStorage.setItem("age", age);
-}
+// // تابع برای ذخیره‌سازی سن در لوکال استوریج
+// function saveAgeToLocalStorage(age) {
+//   localStorage.setItem("age", age);
+// }
 
-// ساخت فرم هنگام اجرای اسکریپت
-createForm();
+// // ساخت فرم هنگام اجرای اسکریپت
+// createForm();
 
 
  // ........................................................................
@@ -87,7 +87,7 @@ function template() {
     </div>`;
 }
 // adding it to html
-// body.insertAdjacentHTML("afterbegin", template());
+body.innerHTML = template();
 
 
 // 2. an Array..........................................
@@ -106,7 +106,7 @@ const tests = [
     answer: 0,
   },
   {
-    question: "Images/1/test2.png",
+    question: "Images/1/test1.png",
     choices: [
       "Images/2/2-1.png",
       "Images/2/2-2.png",
@@ -131,10 +131,13 @@ const tests = [
   },
 ]; 
 
+
  //  3. we start form 0..................................
 
 let test = 0;
 let score = 0;
+// console.log(tests[test]);
+// console.log(test);
 
 // 4. loading the test with its question & choices......
 
@@ -146,19 +149,18 @@ function loadQuestion() {
   //   for question................................
   // index of tests.......
   const currentTest = tests[test];
-
-  //   create an img for the question........
-  const QuestionImg = document.createElement("img");
-
-  //   we select the src in the array for img src
-  QuestionImg.src = currentTest.question;
-
-  // add the question in html
-  questionDiv.appendChild(QuestionImg);
+  
+  // روش اول برای جایگزین کردن
+// we want it to be replaced by the new img so we use innerHTML
+  questionDiv.innerHTML = `<img src="${currentTest.question}">`;
 
   //   for choices................................
+
+  // روش دوم برای جایگزین کردن
+  // Clear previous choices
+  choicesDiv.innerHTML = '';
   currentTest.choices.forEach((choice, index) => {
-    //  create & add the choices in html
+    //  create & add each choice in html
     const answerImg = document.createElement("img");
     answerImg.src = choice;
     choicesDiv.appendChild(answerImg);
@@ -182,7 +184,7 @@ function checkAnswer(index) {
   // array index + 1 > go to the next question
   test++;
 
-  if (currentTest < tests) {
+  if (test < tests.length) {
     // more question > next question
     loadQuestion();
   } else {
@@ -195,22 +197,23 @@ function checkAnswer(index) {
 function resultTemp() {
   return `<div>Your Score: ${score} out of ${tests.length}</div>
   <div><h2> Do you want to take the test again?</h2>
-  <button id="tryAgainBtn" type="submit">Yes</button></div`; 
+  <button id="tryAgainBtn" type="submit">Yes</button></div>`; 
 }
-// get user name from local storage*********************
+// اسم کاربر رو از لوکال استورج بگیریم و توی نتیحه نمایشش بدیم******************
 
 // 7. showing the result................................
 function result() {
   // variable......
-  const questionDiv = document.querySelector("#question");
+  const container = document.querySelector("#container");
   // add score & array length text in html
-  questionDiv.insertAdjacentHTML(
-    "afterbegin", resultTemp());
+  container.innerHTML = resultTemp();
 
     // 8. take the test again onclick
-document.querySelector("#tryAgainBtn").addEventListener('click', loadQuestion());
+document.querySelector("#tryAgainBtn").addEventListener('click', loadQuestion);
 }
 
-
+// بعد از فورم این فانکشن اتفاق میفته**********************
 // show the first test
-// loadQuestion() 
+loadQuestion();
+
+
