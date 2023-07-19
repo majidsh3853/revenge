@@ -74,22 +74,21 @@ function saveAgeToLocalStorage(age) {
 // ساخت فرم هنگام اجرای اسکریپت
 createForm();
 
-// ........................................................................
+
+ // ........................................................................
 
 // 1. a template for diffrent questions.................
 const body = document.querySelector("body");
 
 function template() {
   return `<div id="container">
-        <h2 id="question"></h2>
+        <div id="question"></div>
         <button id="choices"></button>
     </div>`;
 }
 // adding it to html
 // body.insertAdjacentHTML("afterbegin", template());
 
-// show the first test
-// loadQuestion()
 
 // 2. an Array..........................................
 
@@ -130,9 +129,10 @@ const tests = [
     ],
     answer: 0,
   },
-];
+]; 
 
-//  3. we start form 0..................................( 3 for Amirhosein)****
+ //  3. we start form 0..................................
+
 let test = 0;
 let score = 0;
 
@@ -206,7 +206,11 @@ function result() {
   // add score & array length text in html
   questionDiv.insertAdjacentHTML(
     "afterbegin", resultTemp());
+
+    // 8. take the test again onclick
+document.querySelector("#tryAgainBtn").addEventListener('click', loadQuestion());
 }
 
-// 8. take the test again onclick
-document.querySelector("#tryAgainBtn").addEventListener('click', loadQuestion())
+
+// show the first test
+// loadQuestion() 
