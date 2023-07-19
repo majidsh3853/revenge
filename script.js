@@ -1,95 +1,95 @@
-
 // تابع برای ایجاد فرم و عناصر آن به صورت پویا
 function createForm() {
-    
-    const form = document.createElement('form');
-    form.setAttribute('id', 'myForm');
-  
-    const nameLabel = document.createElement('label');
-    nameLabel.setAttribute('for', 'name');
-    nameLabel.textContent = 'Name:';
-    form.appendChild(nameLabel);
-  
-    const nameInput = document.createElement('input');
-    nameInput.setAttribute('type', 'text');
-    nameInput.setAttribute('id', 'name');
-    nameInput.setAttribute('required', 'true');
-    form.appendChild(nameInput);
-  
-    const lineBreak = document.createElement('br');
-    
-    form.appendChild(lineBreak);
-   
-  
-    const ageLabel = document.createElement('label');
-    ageLabel.setAttribute('for', 'age');
-    ageLabel.textContent = 'Age:';
-    form.appendChild(ageLabel);
-  
-    const ageInput = document.createElement('input');
-    ageInput.setAttribute('type', 'number');
-    ageInput.setAttribute('id', 'age');
-    ageInput.setAttribute('required', 'true');
-    ageInput.setAttribute('max', '100');
-    ageInput.setAttribute('min', '7');
-    form.appendChild(ageInput);
-  
-    const submitButton = document.createElement('input');
-    submitButton.setAttribute('type', 'submit');
-    submitButton.setAttribute('value', 'Submit');
-    submitButton.setAttribute('id', 'submitButton');
-    form.appendChild(submitButton);
-  
-    document.body.appendChild(form);
-  
-    // اضافه کردن یک گوش‌گیری رویداد برای کنترل ارسال فرم
-    form.addEventListener('submit', handleSubmit);
-  }
-  
-  // تابع برای کنترل ارسال فرم
-  function handleSubmit(event) {
-    event.preventDefault(); // جلوگیری از ارسال فرم برای جلوگیری از بازنشانی صفحه
-    const name = document.getElementById('name').value;
-    const age = document.getElementById('age').value;
-  
-    if (name && age) {
-      // فراخوانی توابع برای کنترل ورودی‌های نام و سن
-      saveNameToLocalStorage(name);
-      saveAgeToLocalStorage(age);
-  
-      alert('اطلاعات با موفقیت ذخیره شد!');
-      // می‌توانید از اینجا منطق دیگری را اضافه کنید، مثلاً هدایت به صفحه دیگر.
-    } else {
-      alert('لطفاً همه‌ی فیلدها را پر کنید.');
-    }
-  }
-  
-  // تابع برای ذخیره‌سازی نام در لوکال استوریج
-  function saveNameToLocalStorage(name) {
-    localStorage.setItem('name', name);
-  }
-  
-  // تابع برای ذخیره‌سازی سن در لوکال استوریج
-  function saveAgeToLocalStorage(age) {
-    localStorage.setItem('age', age);
-  }
-  
-  // ساخت فرم هنگام اجرای اسکریپت
-  createForm();
+  const form = document.createElement("form");
+  form.setAttribute("id", "myForm");
 
-  // ........................................................................
+  const nameLabel = document.createElement("label");
+  nameLabel.setAttribute("for", "name");
+  nameLabel.textContent = "Name:";
+  form.appendChild(nameLabel);
+
+  const nameInput = document.createElement("input");
+  nameInput.setAttribute("type", "text");
+  nameInput.setAttribute("id", "name");
+  nameInput.setAttribute("required", "true");
+  form.appendChild(nameInput);
+
+  const lineBreak = document.createElement("br");
+
+  form.appendChild(lineBreak);
+
+  const ageLabel = document.createElement("label");
+  ageLabel.setAttribute("for", "age");
+  ageLabel.textContent = "Age:";
+  form.appendChild(ageLabel);
+
+  const ageInput = document.createElement("input");
+  ageInput.setAttribute("type", "number");
+  ageInput.setAttribute("id", "age");
+  ageInput.setAttribute("required", "true");
+  ageInput.setAttribute("max", "100");
+  ageInput.setAttribute("min", "7");
+  form.appendChild(ageInput);
+
+  const submitButton = document.createElement("input");
+  submitButton.setAttribute("type", "submit");
+  submitButton.setAttribute("value", "Submit");
+  submitButton.setAttribute("id", "submitButton");
+  form.appendChild(submitButton);
+
+  document.body.appendChild(form);
+
+  // اضافه کردن یک گوش‌گیری رویداد برای کنترل ارسال فرم
+  form.addEventListener("submit", handleSubmit);
+}
+
+// تابع برای کنترل ارسال فرم
+function handleSubmit(event) {
+  event.preventDefault(); // جلوگیری از ارسال فرم برای جلوگیری از بازنشانی صفحه
+  const name = document.getElementById("name").value;
+  const age = document.getElementById("age").value;
+
+  if (name && age) {
+    // فراخوانی توابع برای کنترل ورودی‌های نام و سن
+    saveNameToLocalStorage(name);
+    saveAgeToLocalStorage(age);
+
+    alert("اطلاعات با موفقیت ذخیره شد!");
+    // می‌توانید از اینجا منطق دیگری را اضافه کنید، مثلاً هدایت به صفحه دیگر.
+  } else {
+    alert("لطفاً همه‌ی فیلدها را پر کنید.");
+  }
+}
+
+// تابع برای ذخیره‌سازی نام در لوکال استوریج
+function saveNameToLocalStorage(name) {
+  localStorage.setItem("name", name);
+}
+
+// تابع برای ذخیره‌سازی سن در لوکال استوریج
+function saveAgeToLocalStorage(age) {
+  localStorage.setItem("age", age);
+}
+
+// ساخت فرم هنگام اجرای اسکریپت
+createForm();
+
+// ........................................................................
 
 // 1. a template for diffrent questions.................
 const body = document.querySelector("body");
 
 function template() {
   return `<div id="container">
-        <div id="question"></div>
-        <div id="choices"></div>
+        <h2 id="question"></h2>
+        <button id="choices"></button>
     </div>`;
 }
 // adding it to html
 // body.insertAdjacentHTML("afterbegin", template());
+
+// show the first test
+// loadQuestion()
 
 // 2. an Array..........................................
 
@@ -144,7 +144,7 @@ function loadQuestion() {
   const choicesDiv = document.querySelector("#choices");
 
   //   for question................................
-  // the fist index of tests.......
+  // index of tests.......
   const currentTest = tests[test];
 
   //   create an img for the question........
@@ -157,26 +157,56 @@ function loadQuestion() {
   questionDiv.appendChild(QuestionImg);
 
   //   for choices................................
-  currentTest.choices.forEach((choice, index)=>{
-      //  create & add the choices in html
+  currentTest.choices.forEach((choice, index) => {
+    //  create & add the choices in html
     const answerImg = document.createElement("img");
     answerImg.src = choice;
     choicesDiv.appendChild(answerImg);
 
     // onclick
-    // answerImg.addEventListener("click", () => {
-    //     checkAnswer(index);
-    //   });
+    answerImg.addEventListener("click", () => {
+      checkAnswer(index);
+    });
   });
-
-};
-
-
-// ( 5 & 6 for Amirhosein)****
+}
 
 // 5. checking the answer...............................
-// function checkAnswer() {
-    
-// }
+function checkAnswer(index) {
+  const currentTest = tests[test];
+  // if answer is correct
+  if (index === currentTest.answer) {
+    // user score + 1
+    score++;
+  }
 
-// 6. showing the result................................
+  // array index + 1 > go to the next question
+  test++;
+
+  if (currentTest < tests) {
+    // more question > next question
+    loadQuestion();
+  } else {
+    // no question > show result
+    result();
+  }
+}
+
+// 6. a template for showing result
+function resultTemp() {
+  return `<div>Your Score: ${score} out of ${tests.length}</div>
+  <div><h2> Do you want to take the test again?</h2>
+  <button id="tryAgainBtn" type="submit">Yes</button></div`; 
+}
+// get user name from local storage*********************
+
+// 7. showing the result................................
+function result() {
+  // variable......
+  const questionDiv = document.querySelector("#question");
+  // add score & array length text in html
+  questionDiv.insertAdjacentHTML(
+    "afterbegin", resultTemp());
+}
+
+// 8. take the test again onclick
+document.querySelector("#tryAgainBtn").addEventListener('click', loadQuestion())
