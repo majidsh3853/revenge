@@ -74,8 +74,7 @@
 // // ساخت فرم هنگام اجرای اسکریپت
 // createForm();
 
-
- // ........................................................................
+// ........................................................................
 
 // 1. a template for diffrent questions.................
 const body = document.querySelector("body");
@@ -86,9 +85,6 @@ function template() {
         <button id="choices"></button>
     </div>`;
 }
-// adding it to html
-body.innerHTML = template();
-
 
 // 2. an Array..........................................
 
@@ -106,7 +102,7 @@ const tests = [
     answer: 0,
   },
   {
-    question: "Images/1/test1.png",
+    question: "Images/2/test2.png",
     choices: [
       "Images/2/2-1.png",
       "Images/2/2-2.png",
@@ -118,7 +114,7 @@ const tests = [
     answer: 0,
   },
   {
-    question: "Images/1/test1.png",
+    question: "Images/3/test3.png",
     choices: [
       "Images/3/3-1.png",
       "Images/3/3-2.png",
@@ -129,19 +125,27 @@ const tests = [
     ],
     answer: 0,
   },
-]; 
+];
 
 
- //  3. we start form 0..................................
+// ......................................................
+
+
+
+// ......................................................
+
+//  3. we start form 0..................................
 
 let test = 0;
 let score = 0;
-// console.log(tests[test]);
-// console.log(test);
+
 
 // 4. loading the test with its question & choices......
 
 function loadQuestion() {
+  // adding it to html
+  body.innerHTML = template();
+
   // variables......
   const questionDiv = document.querySelector("#question");
   const choicesDiv = document.querySelector("#choices");
@@ -149,16 +153,16 @@ function loadQuestion() {
   //   for question................................
   // index of tests.......
   const currentTest = tests[test];
-  
+
   // روش اول برای جایگزین کردن
-// we want it to be replaced by the new img so we use innerHTML
+  // we want it to be replaced by the new img so we use innerHTML
   questionDiv.innerHTML = `<img src="${currentTest.question}">`;
 
   //   for choices................................
 
   // روش دوم برای جایگزین کردن
   // Clear previous choices
-  choicesDiv.innerHTML = '';
+  choicesDiv.innerHTML = "";
   currentTest.choices.forEach((choice, index) => {
     //  create & add each choice in html
     const answerImg = document.createElement("img");
@@ -197,7 +201,7 @@ function checkAnswer(index) {
 function resultTemp() {
   return `<div>Your Score: ${score} out of ${tests.length}</div>
   <div><h2> Do you want to take the test again?</h2>
-  <button id="tryAgainBtn" type="submit">Yes</button></div>`; 
+  <button id="tryAgainBtn" type="submit">Yes</button></div>`;
 }
 // اسم کاربر رو از لوکال استورج بگیریم و توی نتیحه نمایشش بدیم******************
 
@@ -208,11 +212,17 @@ function result() {
   // add score & array length text in html
   container.innerHTML = resultTemp();
 
-    // 8. take the test again onclick
-document.querySelector("#tryAgainBtn").addEventListener('click', loadQuestion);
+  test = 0;
+  score = 0;
+
+  // 8. take the test again onclick
+  document
+    .querySelector("#tryAgainBtn")
+    .addEventListener("click", loadQuestion);
 }
 
 // بعد از فورم این فانکشن اتفاق میفته**********************
+
 // show the first test
 loadQuestion();
 
