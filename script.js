@@ -88,57 +88,44 @@ function template() {
 
 // 2. an Array..........................................
 
-const tests = [
-  {
-    question: "Images/1/test1.png",
-    choices: [
-      "Images/1/1-1.png",
-      "Images/1/1-2.png",
-      "Images/1/1-3.png",
-      "Images/1/1-4.png",
-      "Images/1/1-5.png",
-      "Images/1/1-6.png",
-    ],
-    answer: 0,
-  },
-  {
-    question: "Images/2/test2.png",
-    choices: [
-      "Images/2/2-1.png",
-      "Images/2/2-2.png",
-      "Images/2/2-3.png",
-      "Images/2/2-4.png",
-      "Images/2/2-5.png",
-      "Images/2/2-6.png",
-    ],
-    answer: 0,
-  },
-  {
-    question: "Images/3/test3.png",
-    choices: [
-      "Images/3/3-1.png",
-      "Images/3/3-2.png",
-      "Images/3/3-3.png",
-      "Images/3/3-4.png",
-      "Images/3/3-5.png",
-      "Images/3/3-6.png",
-    ],
-    answer: 0,
-  },
-];
+const tests = [];
+correctAnswers = [
+  3, 1, 5, 5, 2, 1, 2, 2, 2, 6, 4, 1, 4, 7, 2, 3, 1, 6, 5, 8, 4, 4, 7, 6, 4, 7,7, 3, 2, 8,];
 
+for (let i = 1; i <= 13; i++) {
+  const choices = [];
 
-// ......................................................
+  for (let j = 1; j <= 6; j++) {
+    choices.push(`Images/${i}/${i}-${j}.png`);
+  }
 
+  tests.push({
+    question: `Images/${i}/test${i}.png`,
+    // choices: choices
+    choices,
+    answer: correctAnswers[i-1],
+  });
+}
 
+for (let i = 14; i <= 30; i++) {
+  const choices = [];
 
-// ......................................................
+  for (let j = 1; j <= 8; j++) {
+    choices.push(`Images/${i}/${i}-${j}.png`);
+  }
+
+  tests.push({
+    question: `Images/${i}/test${i}.png`,
+    // choices: choices
+    choices,
+    answer: correctAnswers[i-1],
+  });
+}
 
 //  3. we start form 0..................................
 
 let test = 0;
 let score = 0;
-
 
 // 4. loading the test with its question & choices......
 
@@ -169,18 +156,20 @@ function loadQuestion() {
     answerImg.src = choice;
     choicesDiv.appendChild(answerImg);
 
+    // choicesDiv.innerHTML += `<img src="${choice}">`;
+
     // onclick
     answerImg.addEventListener("click", () => {
-      checkAnswer(index);
+      checkAnswer(index + 1);
     });
   });
 }
 
 // 5. checking the answer...............................
-function checkAnswer(index) {
+function checkAnswer(userChoice) {
   const currentTest = tests[test];
   // if answer is correct
-  if (index === currentTest.answer) {
+  if (userChoice === currentTest.answer) {
     // user score + 1
     score++;
   }
@@ -225,5 +214,3 @@ function result() {
 
 // show the first test
 loadQuestion();
-
-
