@@ -1,78 +1,81 @@
 // تابع برای ایجاد فرم و عناصر آن به صورت پویا
-// function createForm() {
-//   const form = document.createElement("form");
-//   form.setAttribute("id", "myForm");
+function createForm() {
+  const form = document.createElement("form");
+  form.setAttribute("id", "myForm");
 
-//   const nameLabel = document.createElement("label");
-//   nameLabel.setAttribute("for", "name");
-//   nameLabel.textContent = "Name:";
-//   form.appendChild(nameLabel);
+  const nameLabel = document.createElement("label");
+  nameLabel.setAttribute("for", "name");
+  nameLabel.textContent = "Name:";
+  form.appendChild(nameLabel);
 
-//   const nameInput = document.createElement("input");
-//   nameInput.setAttribute("type", "text");
-//   nameInput.setAttribute("id", "name");
-//   nameInput.setAttribute("required", "true");
-//   form.appendChild(nameInput);
+  const nameInput = document.createElement("input");
+  nameInput.setAttribute("type", "text");
+  nameInput.setAttribute("autocomplete", "off");
+  nameInput.setAttribute("id", "name");
+  nameInput.setAttribute("required", "true");
+  form.appendChild(nameInput);
 
-//   const lineBreak = document.createElement("br");
+  const lineBreak = document.createElement("br");
 
-//   form.appendChild(lineBreak);
+  form.appendChild(lineBreak);
 
-//   const ageLabel = document.createElement("label");
-//   ageLabel.setAttribute("for", "age");
-//   ageLabel.textContent = "Age:";
-//   form.appendChild(ageLabel);
+  const ageLabel = document.createElement("label");
+  ageLabel.setAttribute("for", "age");
+  ageLabel.textContent = "Age:";
+  form.appendChild(ageLabel);
 
-//   const ageInput = document.createElement("input");
-//   ageInput.setAttribute("type", "number");
-//   ageInput.setAttribute("id", "age");
-//   ageInput.setAttribute("required", "true");
-//   ageInput.setAttribute("max", "100");
-//   ageInput.setAttribute("min", "7");
-//   form.appendChild(ageInput);
+  const ageInput = document.createElement("input");
+  ageInput.setAttribute("type", "number");
+  ageInput.setAttribute("id", "age");
+  ageInput.setAttribute("required", "true");
+  ageInput.setAttribute("max", "100");
+  ageInput.setAttribute("min", "7");
+  form.appendChild(ageInput);
 
-//   const submitButton = document.createElement("input");
-//   submitButton.setAttribute("type", "submit");
-//   submitButton.setAttribute("value", "Submit");
-//   submitButton.setAttribute("id", "submitButton");
-//   form.appendChild(submitButton);
+  const submitButton = document.createElement("input");
+  submitButton.setAttribute("type", "submit");
+  submitButton.setAttribute("value", "Submit");
+  submitButton.setAttribute("id", "submitButton");
+  form.appendChild(submitButton);
 
-//   document.body.appendChild(form);
+  document.body.appendChild(form);
 
-//   // اضافه کردن یک گوش‌گیری رویداد برای کنترل ارسال فرم
-//   form.addEventListener("submit", handleSubmit);
-// }
+  // اضافه کردن یک گوش‌گیری رویداد برای کنترل ارسال فرم
+  form.addEventListener("submit", handleSubmit);
+}
 
-// // تابع برای کنترل ارسال فرم
-// function handleSubmit(event) {
-//   event.preventDefault(); // جلوگیری از ارسال فرم برای جلوگیری از بازنشانی صفحه
-//   const name = document.getElementById("name").value;
-//   const age = document.getElementById("age").value;
+// تابع برای کنترل ارسال فرم
+function handleSubmit(event) {
+  event.preventDefault(); // جلوگیری از ارسال فرم برای جلوگیری از بازنشانی صفحه
+  const name = document.getElementById("name").value;
+  const age = document.getElementById("age").value;
 
-//   if (name && age) {
-//     // فراخوانی توابع برای کنترل ورودی‌های نام و سن
-//     saveNameToLocalStorage(name);
-//     saveAgeToLocalStorage(age);
+  if (name && age) {
+    // فراخوانی توابع برای کنترل ورودی‌های نام و سن
+    saveNameToLocalStorage(name);
+    saveAgeToLocalStorage(age);
 
-//     alert("اطلاعات با موفقیت ذخیره شد!");
-//     // می‌توانید از اینجا منطق دیگری را اضافه کنید، مثلاً هدایت به صفحه دیگر.
-//   } else {
-//     alert("لطفاً همه‌ی فیلدها را پر کنید.");
-//   }
-// }
+    alert("اطلاعات با موفقیت ذخیره شد!");
 
-// // تابع برای ذخیره‌سازی نام در لوکال استوریج
-// function saveNameToLocalStorage(name) {
-//   localStorage.setItem("name", name);
-// }
+    // start the test.............................
+    loadQuestion();
+  } else {
+    alert("لطفاً همه‌ی فیلدها را پر کنید.");
+  }
+}
 
-// // تابع برای ذخیره‌سازی سن در لوکال استوریج
-// function saveAgeToLocalStorage(age) {
-//   localStorage.setItem("age", age);
-// }
+// تابع برای ذخیره‌سازی نام در لوکال استوریج
+function saveNameToLocalStorage(name) {
+  localStorage.setItem("name", name);
+}
 
-// // ساخت فرم هنگام اجرای اسکریپت
-// createForm();
+// تابع برای ذخیره‌سازی سن در لوکال استوریج
+function saveAgeToLocalStorage(age) {
+  localStorage.setItem("age", age);
+}
+
+// ساخت فرم هنگام اجرای اسکریپت
+createForm();
 
 // ........................................................................
 
@@ -82,7 +85,7 @@ const body = document.querySelector("body");
 function template() {
   return `<div id="container">
         <div id="question"></div>
-        <button id="choices"></button>
+        <div id="choices"></div>
     </div>`;
 }
 
@@ -90,7 +93,9 @@ function template() {
 
 const tests = [];
 correctAnswers = [
-  3, 1, 5, 5, 2, 1, 2, 2, 2, 6, 4, 1, 4, 7, 2, 3, 1, 6, 5, 8, 4, 4, 7, 6, 4, 7,7, 3, 2, 8,];
+  3, 1, 5, 5, 2, 1, 2, 2, 2, 6, 4, 1, 4, 7, 2, 3, 1, 6, 5, 8, 4, 4, 7, 6, 4, 7,
+  7, 3, 2, 8,
+];
 
 for (let i = 1; i <= 13; i++) {
   const choices = [];
@@ -103,7 +108,7 @@ for (let i = 1; i <= 13; i++) {
     question: `Images/${i}/test${i}.png`,
     // choices: choices
     choices,
-    answer: correctAnswers[i-1],
+    answer: correctAnswers[i - 1],
   });
 }
 
@@ -118,7 +123,7 @@ for (let i = 14; i <= 30; i++) {
     question: `Images/${i}/test${i}.png`,
     // choices: choices
     choices,
-    answer: correctAnswers[i-1],
+    answer: correctAnswers[i - 1],
   });
 }
 
@@ -188,11 +193,10 @@ function checkAnswer(userChoice) {
 
 // 6. a template for showing result
 function resultTemp() {
-  return `<div>Your Score: ${score} out of ${tests.length}</div>
-  <div><h2> Do you want to take the test again?</h2>
+  return `<h2>Your Score: ${score} out of ${tests.length}</h2>
+  <div id="tryAgainDiv"><h2> Do you want to take the test again?</h2>
   <button id="tryAgainBtn" type="submit">Yes</button></div>`;
 }
-// اسم کاربر رو از لوکال استورج بگیریم و توی نتیحه نمایشش بدیم******************
 
 // 7. showing the result................................
 function result() {
@@ -210,7 +214,3 @@ function result() {
     .addEventListener("click", loadQuestion);
 }
 
-// بعد از فورم این فانکشن اتفاق میفته**********************
-
-// show the first test
-loadQuestion();
